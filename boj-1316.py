@@ -1,22 +1,25 @@
 # https://www.acmicpc.net/problem/1316
 def is_group_word(s):
-    flag = 0
     for i in range(len(s)):
-        for j in range(i+1,len(s)+1):
+        flag = 0
+        for j in range(i+1, len(s)):
             if flag == 0:
                 if s[i] != s[j]:
                     flag = 1
             else:
+                if s[i] == s[j]:
+                    return False
+    return True
 
 
 n = int(input())
-group_word = 0
+group_word_count = 0
 
 for _ in range(n):
     s = input()
     if is_group_word(s):
-        group_word += 1
+        group_word_count += 1
 
-print(group_word)
+print(group_word_count)
 
 
