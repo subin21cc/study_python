@@ -1,9 +1,17 @@
 # https://www.acmicpc.net/problem/1978
 N = int(input())
-prime_count = 0
+num = map(int, input().split())
+prime_list = []
 
-for _ in range(N):
-    n = int(input())
-    for i in range(2, n):
-        if n % i != 0:
-            prime_count += 1
+for i in num:
+    a = 0
+    if i == 1:
+        continue
+
+    for j in range(2,i):
+        if i % j == 0:
+            a += 1
+    if a == 0:
+        prime_list.append(i)
+
+print(len(prime_list))
