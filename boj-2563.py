@@ -1,7 +1,13 @@
 # https://www.acmicpc.net/problem/2563
-n = int(input())
-full_width = n * 100
-overlap = 0
+import sys
 
-for _ in range(n):
-    a, b = map(int, input().split())
+paper = [0] * 100
+ran = 0
+
+
+for _ in range(100):
+    paper = [[0] * 100]
+
+
+print(paper)
+
