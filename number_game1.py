@@ -11,9 +11,12 @@
 import random
 max_num = 100
 ran = random.randrange(1, max_num+1)
-guess = int(input())
+guess = 0
 
 while guess == ran:
+    guess = int(input())
+    if guess > ran:
+        print('')
 
 
 
