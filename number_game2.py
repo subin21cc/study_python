@@ -8,12 +8,19 @@
 컴퓨터가 숫자를 맞추면 정지
 '''
 
+min_num = 0
 max_num = 100
 
-print(max_num//2)
 answer = input()
 
-if answer == 'up':
-    print(max_num//4*3)
-else:
-    print(max_num//4)
+while True:
+    middle = int((min_num+max_num)//2)
+    print(middle)
+    answer = input("값보다 up/down/answer?")
+    if answer == "up":
+        min_num = middle
+    elif answer == "down":
+        max_num = middle
+    elif answer == "answer":
+        print("맞았습니다.")
+        break

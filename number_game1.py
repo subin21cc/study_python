@@ -10,17 +10,43 @@
 
 import random
 max_num = 100
-ran = random.randrange(1, max_num+1)
-guess = ''
+answer = ''
+count_list = []
+sum_count = 0
+game_count = 0
 
-while guess != ran:
-    guess = int(input())
-    if guess > ran:
-        print(guess, '보다 작습니다.')
-    elif guess < ran:
-        print(guess, '보다 큽니다.')
-    else:
-        print('맞았습니다.')
+while answer != 'no':
+    ran = random.randrange(1, max_num+1)
+    guess = ''
+    print('1 ~', max_num, '중의 숫자 하나를 맞춰보세요. (중간에 그만두고 싶다면 -1을 입력하세요.)')
+    count = 0
 
+    while guess != ran:
+        guess = int(input('숫자를 입력하세요 : '))
+        count += 1
 
+        if guess == -1:
+            break
+        elif guess > ran:
+            print(guess, '보다 작습니다.')
+        elif guess < ran:
+            print(guess, '보다 큽니다.')
+
+    print(count, '번만에 맞았습니다. 계속하시겠습니까? ')
+    count_list.append(count)
+    game_count += 1
+    sum_count += count
+
+    while True:
+        answer = input('yes or no : ')
+
+        if answer == 'yes':
+            break
+        elif answer == 'no':
+            break
+        else:
+            print('입력을 잘못하셨습니다.')
+
+print(game_count, '번 플레이하셨습니다.')
+print('평균', round(sum_count/len(count_list),2), '회로 맞았습니다.(소수점 두번째자리에서 반올림)')
 
