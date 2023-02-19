@@ -9,7 +9,9 @@
 '''
 
 import random
+
 max_num = 100
+
 answer = ''
 count_list = []
 sum_count = 0
@@ -21,7 +23,7 @@ while answer != 'no':
     print('1 ~', max_num, '중의 숫자 하나를 맞춰보세요. (중간에 그만두고 싶다면 -1을 입력하세요.)')
     count = 0
 
-    while guess != ran:
+    while True:
         guess = int(input('숫자를 입력하세요 : '))
         count += 1
 
@@ -31,18 +33,21 @@ while answer != 'no':
             print(guess, '보다 작습니다.')
         elif guess < ran:
             print(guess, '보다 큽니다.')
+        else:
+            break
 
-    print(count, '번만에 맞았습니다. 계속하시겠습니까? ')
-    count_list.append(count)
-    game_count += 1
-    sum_count += count
+    if guess == -1:
+        break
+    else:
+        print(count, '번만에 맞았습니다. 계속하시겠습니까? ')
+        count_list.append(count)
+        game_count += 1
+        sum_count += count
 
     while True:
         answer = input('yes or no : ')
 
-        if answer == 'yes':
-            break
-        elif answer == 'no':
+        if answer == 'yes' or 'no':
             break
         else:
             print('입력을 잘못하셨습니다.')

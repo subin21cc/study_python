@@ -8,19 +8,31 @@
 컴퓨터가 숫자를 맞추면 정지
 '''
 
-min_num = 0
-max_num = 100
 
-answer = input()
+def print_hello():
+    min_num = 0
+    max_num = 100
+    print('숫자 하나를 생각한 뒤, 컴퓨터가 그 숫자를 맞추게 해보세요.(단,1~{}까지의 수)'.format(max_num))
 
-while True:
-    middle = int((min_num+max_num)//2)
-    print(middle)
-    answer = input("값보다 up/down/answer?")
-    if answer == "up":
-        min_num = middle
-    elif answer == "down":
-        max_num = middle
-    elif answer == "answer":
-        print("맞았습니다.")
-        break
+
+def run_number_game():
+    min_num = 1
+    max_num = 100
+
+    while True:
+        middle = int((min_num + max_num) // 2)
+        print(middle)
+        answer = input("값보다 up/down/answer?")
+
+        if answer == "up":
+            min_num = middle + 1
+        elif answer == "down":
+            max_num = middle - 1
+        elif answer == "answer":
+            print("맞았습니다.")
+            return 0
+
+
+if __name__ == '__main__':
+    print_hello()
+    run_number_game()
