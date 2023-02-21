@@ -102,6 +102,7 @@ if __name__ == '__main__':
         game_continue = input('게임을 계속하시겠습니까? (Y/N) [Y]:')
         if game_continue == 'N' or game_continue == 'n':
             break
+
         print_game_title(game_count)
     print_bye()
 
