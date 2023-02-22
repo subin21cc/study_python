@@ -1,5 +1,5 @@
 # 숫자 야구 게임1
-'''
+"""
 숫자야구란 감춰진 3개의 숫자가 무엇인지 맞추는 게임입니다.
 1) 3자리 숫자와 위치가 모두 맞아야 성공입니다.
 2) 숫자는 0~9까지 구성되어 있으며, 각 숫자는 한번씩만 사용 가능합니다
@@ -9,7 +9,8 @@
 예시) 감춰진 숫자가 123 이라고 할 경우
 - a. 102 = 1S 1B
 - b. 124 = 2S
-'''
+"""
+
 import random
 
 
@@ -26,6 +27,7 @@ def print_hello():
 def print_game_title(game_count):
     print('--------------------')
     print('{}번쩨 게임을 시작합니다.'.format(game_count))
+
 
 def is_valid_num_str(str):
     for i in range(3):
@@ -82,27 +84,36 @@ def run_bulls_and_cows():
             if s == 3:
                 print('정답입니다.')
                 print('{}번만에 맞췄습니다.'.format(guess_count))
-                break
+                return guess_count
             print('{}S, {}B'.format(s, b))
 
 
 def print_bye():
+    print('====================')
     print('게임을 종료했습니다.')
+    print('게임 횟수 :', game_count)
+    print('게임당 평균 시도 횟수 :', guess_count_sum / game_count)
 
 
 if __name__ == '__main__':
-    game_count = 1
-    game_try_sum = 0
+    game_count = 0
+    guess_count_sum = 0
     print_hello()
-    run_bulls_and_cows()
 
     while True:
         game_count += 1
+        print_game_title(game_count)
+        guess_count = run_bulls_and_cows()
+
+        if guess_count == 0:
+            game_count -= 1
+            break
+
+        guess_count_sum += guess_count
 
         game_continue = input('게임을 계속하시겠습니까? (Y/N) [Y]:')
         if game_continue == 'N' or game_continue == 'n':
             break
 
-        print_game_title(game_count)
     print_bye()
 
