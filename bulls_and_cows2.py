@@ -52,8 +52,23 @@ def check_list(s_count, b_count):
     for i in range(1000):
         if not num_list[i]:
             continue
-        s_count
+        if get_ball_count(guess_num, num_list[i]) != (s_count, b_count):
+            return False
 
+
+def get_ball_count(n1, n2):
+    strike = 0
+    ball = 0
+    for i in range(3):
+        for j in range(3):
+            if i == j:
+                if n1[i] == n2[j]:
+                    strike += 1
+            else:
+                if n1[i] == n2[j]:
+                    ball += 1
+
+    return strike, ball
 
 
 num_list = [True] * 1000
