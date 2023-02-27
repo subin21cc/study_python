@@ -49,7 +49,6 @@ def init_list():
 
 def check_list(s_count, b_count):
     global num_list
-
     for i in range(1000):
         if not num_list[i]:
             continue
